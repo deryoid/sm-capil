@@ -71,10 +71,12 @@ include '../../templates/head.php';
                                             <thead class="bg-blue">
                                                 <tr align="center">
                                                     <th>No</th>
-                                                    <th>Nomor Surat Keluar</th>
-                                                    <th>Tanggal Terima</th>
-                                                    <th>Nama Pegawai</th>
-                                                    <th>Kategori</th>
+                                                    <th>No Urut</th>
+                                                    <th>Nomor Surat Masuk</th>
+                                                    <th>Tanggal Surat</th>
+                                                    <th>Tanggal Kirim</th>
+                                                    <th>Uraian/Perihal</th>
+                                                    <th>Pengirim</th>
                                                     <th>Keterangan Surat</th>
                                                     <th>File</th>
                                                     <th>Opsi</th>
@@ -84,21 +86,19 @@ include '../../templates/head.php';
                                             <?php
                                             $no = 1;
                                             $data = $koneksi->query("SELECT * FROM
-                                            surat_keluar AS sk 
-                                            LEFT JOIN pegawai AS p ON sk.id_peg = p.id_peg
-                                            LEFT JOIN kategori AS k ON sk.id_kategori = k.id_kategori
-                                            ORDER BY sk.id_sk DESC");
+                                            surat_keluar 
+                                            ORDER BY id_sk DESC");
                                             while ($row = $data->fetch_array()) {
                                             ?>
                                                     <tr>
                                                         <td align="center"><?= $no++ ?></td>
+                                                        <td><?= $row['nomor_urut'] ?></td>
                                                         <td><?= $row['no_surat'] ?></td>
+                                                        <td><?= $row['tgl_surat'] ? tgl_indo($row['tgl_surat']) : '--/--/----'; ?></td>
                                                         <td><?= $row['tgl_kirim'] ? tgl_indo($row['tgl_kirim']) : '--/--/----'; ?></td>
-                                                        <td><?= $row['nama'] ?></td>
-                                                        <td><?= $row['nama_kategori'] ?></td>
+                                                        <td><?= $row['uraian'] ?></td>
+                                                        <td><?= $row['pengirim'] ?></td>
                                                         <td><?= $row['ket_surat'] ?></td>
-                                                        
-                                                    
                                                         <td><a href="<?= base_url(); ?>/filesurat/<?= $row['file']?>" data-title="file" data-gallery="galery" title="Lihat" target="blank"><i>Lihat File</i></a></td>
                                                                                                               
                                                         <td align="center">

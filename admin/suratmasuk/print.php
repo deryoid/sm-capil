@@ -5,10 +5,7 @@ include '../../config/koneksi.php';
 $no = 1;
 
 $data = $koneksi->query("SELECT * FROM
-surat_masuk AS sm 
-LEFT JOIN pegawai AS p ON sm.id_peg = p.id_peg
-LEFT JOIN kategori AS k ON sm.id_kategori = k.id_kategori
-ORDER BY sm.id_sm DESC");
+surat_masuk ORDER BY id_sm DESC");
 
 $bln = array(
     '01' => 'Januari',
@@ -54,10 +51,12 @@ $bln = array(
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No Urut</th>
                             <th>Nomor Surat Masuk</th>
+                            <th>Tanggal Surat</th>
                             <th>Tanggal Terima</th>
-                            <th>Nama Pegawai</th>
-                            <th>Kategori</th>
+                            <th>Uraian/Perihal</th>
+                            <th>Pengirim</th>
                             <th>Keterangan Surat</th>
                         </tr>
                     </thead>
@@ -66,10 +65,12 @@ $bln = array(
                         <?php while ($row = mysqli_fetch_array($data)) { ?>
                             <tr>
                                 <td align="center"><?= $no++ ?></td>
+                                <td><?= $row['nomor_urut'] ?></td>
                                 <td><?= $row['no_surat'] ?></td>
+                                <td><?= tgl_indo($row['tgl_surat']) ?></td>
                                 <td><?= tgl_indo($row['tgl_terima']) ?></td>
-                                <td><?= $row['nama'] ?></td>
-                                <td><?= $row['nama_kategori'] ?></td>
+                                <td><?= $row['uraian'] ?></td>
+                                <td><?= $row['pengirim'] ?></td>
                                 <td><?= $row['ket_surat'] ?></td>
                             </tr>
                         <?php } ?>

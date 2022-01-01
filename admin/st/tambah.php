@@ -62,6 +62,12 @@ include '../../templates/head.php';
 
 
                                         <div class="form-group row">
+                                            <label for="no_surat" class="col-sm-2 col-form-label">Nomor Urut</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="nomor_urut" name="nomor_urut">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label for="no_surat" class="col-sm-2 col-form-label">Nomor Surat</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="no_surat" name="no_surat">
@@ -74,37 +80,15 @@ include '../../templates/head.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="id_peg" class="col-sm-2 col-form-label">Pegawai</label>
+                                            <label for="no_surat" class="col-sm-2 col-form-label">Nama yang ditugaskan</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" data-placeholder="Pilih" id="id_peg" name="id_peg">
-                                                    <option value=""></option>
-                                                    <?php
-                                                    $data1 = $koneksi->query("SELECT * FROM pegawai ORDER BY id_peg ASC");
-                                                    while ($dsn = $data1->fetch_array()) {
-                                                    ?>
-                                                        <option value="<?= $dsn['id_peg'] ?>"><?= $dsn['nama'] ?></option>
-                                                    <?php } ?>
-                                                </select>
+                                                <input type="text" class="form-control" id="nama_st" name="nama_st">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="id_kategori" class="col-sm-2 col-form-label">Kategori</label>
+                                            <label for="ket_sst" class="col-sm-2 col-form-label"> Perihal</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" data-placeholder="Pilih" id="id_kategori" name="id_kategori">
-                                                    <option value=""></option>
-                                                    <?php
-                                                    $data2 = $koneksi->query("SELECT * FROM kategori ORDER BY id_kategori ASC");
-                                                    while ($dk = $data2->fetch_array()) {
-                                                    ?>
-                                                        <option value="<?= $dk['id_kategori'] ?>"><?= $dk['nama_kategori'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="ket_sst" class="col-sm-2 col-form-label"> Keterangan Tugas</label>
-                                            <div class="col-sm-10">
-                                                <textarea type="text" class="form-control" id="ket_st" name="ket_st"></textarea>
+                                                <textarea type="text" class="form-control" id="perihal" name="perihal"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -114,9 +98,9 @@ include '../../templates/head.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="keperluan_pd" class="col-sm-2 col-form-label"> Keperluan Tugas</label>
+                                            <label for="keperluan_pd" class="col-sm-2 col-form-label"> Keterangan Tugas</label>
                                             <div class="col-sm-10">
-                                                <textarea type="text" class="form-control" id="keperluan_st" name="keperluan_st"></textarea>
+                                                <textarea type="text" class="form-control" id="ket_st" name="ket_st"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -167,13 +151,13 @@ include '../../templates/head.php';
     <?php
 
     if (isset($_POST['submit'])) {
+        $nomor_urut        = $_POST['nomor_urut'];
         $no_surat        = $_POST['no_surat'];
         $tgl_st          = $_POST['tgl_st'];
-        $id_peg          = $_POST['id_peg'];
-        $id_kategori     = $_POST['id_kategori'];
-        $ket_st         = $_POST['ket_st'];
+        $nama_st          = $_POST['nama_st'];
+        $perihal     = $_POST['perihal'];
         $tujuan_st       = $_POST['tujuan_st'];
-        $keperluan_st    = $_POST['keperluan_st'];
+        $ket_st         = $_POST['ket_st'];
     
 
 
@@ -242,13 +226,13 @@ include '../../templates/head.php';
 
         $submit = $koneksi->query("INSERT INTO surat_tugas VALUES (
             NULL,
+            '$nomor_urut',
             '$no_surat',
             '$tgl_st',
-            '$id_peg',
-            '$id_kategori',
-            '$ket_st',
+            '$nama_st',
+            '$perihal',
             '$tujuan_st',
-            '$keperluan_st',
+            '$ket_st',
             '$nama_file'
             )");
         // var_dump($submit, $koneksi->error);

@@ -5,10 +5,8 @@ include '../../config/koneksi.php';
 $no = 1;
 
 $data = $koneksi->query("SELECT * FROM
-surat_keluar AS sk 
-LEFT JOIN pegawai AS p ON sk.id_peg = p.id_peg
-LEFT JOIN kategori AS k ON sk.id_kategori = k.id_kategori
-ORDER BY sk.id_sk DESC");
+surat_keluar 
+ORDER BY id_sk DESC");
 
 $bln = array(
     '01' => 'Januari',
@@ -51,13 +49,15 @@ $bln = array(
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <table border="1" cellspacing="0" width="100%">
-                    <thead>
+                <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nomor Surat keluar</th>
-                            <th>Tanggal Terima</th>
-                            <th>Nama Pegawai</th>
-                            <th>Kategori</th>
+                            <th>No Urut</th>
+                            <th>Nomor Surat Keluar</th>
+                            <th>Tanggal Surat</th>
+                            <th>Tanggal Kirim</th>
+                            <th>Uraian/Perihal</th>
+                            <th>Pengirim</th>
                             <th>Keterangan Surat</th>
                         </tr>
                     </thead>
@@ -66,10 +66,12 @@ $bln = array(
                         <?php while ($row = mysqli_fetch_array($data)) { ?>
                             <tr>
                                 <td align="center"><?= $no++ ?></td>
+                                <td><?= $row['nomor_urut'] ?></td>
                                 <td><?= $row['no_surat'] ?></td>
+                                <td><?= tgl_indo($row['tgl_surat']) ?></td>
                                 <td><?= tgl_indo($row['tgl_kirim']) ?></td>
-                                <td><?= $row['nama'] ?></td>
-                                <td><?= $row['nama_kategori'] ?></td>
+                                <td><?= $row['uraian'] ?></td>
+                                <td><?= $row['pengirim'] ?></td>
                                 <td><?= $row['ket_surat'] ?></td>
                             </tr>
                         <?php } ?>

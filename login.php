@@ -33,7 +33,7 @@ require 'config/config.php';
     <div class="card"  style="background-color:#0069D9;">
       <div class="login-logo">
         <br>
-        <h2 style="color:white;">MANAJEMEN SURAT MENYURAT DESA TINGGIRAN TENGAH<br></h2>
+        <h2 style="color:white;">DINAS KEPENDUDUKAN DAN PENCATAAN SIPIL KAB.HSS<br></h2>
         <h3>
           <img src="<?= base_url() ?>/assets/dist/img/logo.png" style="margin-top: 20px; margin-bottom: 20px;" width="127px;" height="120px;">
           

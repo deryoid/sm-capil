@@ -5,10 +5,8 @@ include '../../config/koneksi.php';
 $no = 1;
 
 $data = $koneksi->query("SELECT * FROM
-surat_tugas AS spd 
-LEFT JOIN pegawai AS p ON spd.id_peg = p.id_peg
-LEFT JOIN kategori AS k ON spd.id_kategori = k.id_kategori
-ORDER BY spd.id_st DESC");
+surat_tugas 
+ORDER BY id_st DESC");
 
 $bln = array(
     '01' => 'Januari',
@@ -54,13 +52,13 @@ $bln = array(
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No Urut</th>
                             <th>Nomor Surat Tugas</th>
                             <th>Tanggal Tugas</th>
-                            <th>Nama Pegawai</th>
-                            <th>Kategori</th>
-                            <th>Keterangan Tugas</th>
+                            <th>Nama Yang Ditugaskan</th>
+                            <th>Perihal</th>
                             <th>Tujuan Tugas</th>
-                            <th>Keperluan Tugas</th>
+                            <th>Keterangan Tugas</th>
                         </tr>
                     </thead>
 
@@ -69,12 +67,12 @@ $bln = array(
                             <tr>
                                 <td align="center"><?= $no++ ?></td>
                                 <td><?= $row['no_surat'] ?></td>
+                                <td><?= $row['nomor_urut'] ?></td>
                                 <td><?= $row['tgl_st'] ? tgl_indo($row['tgl_st']) : '--/--/----'; ?></td>
-                                <td><?= $row['nama'] ?></td>
-                                <td><?= $row['nama_kategori'] ?></td>
-                                <td><?= $row['ket_st'] ?></td>
+                                <td><?= $row['nama_st'] ?></td>
+                                <td><?= $row['perihal'] ?></td>
                                 <td><?= $row['tujuan_st'] ?></td>
-                                <td><?= $row['keperluan_st'] ?></td>
+                                <td><?= $row['ket_st'] ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
