@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 01 Jan 2022 pada 09.09
--- Versi server: 5.7.24
--- Versi PHP: 7.4.12
+-- Host: 127.0.0.1
+-- Generation Time: Feb 07, 2022 at 07:19 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `inventaris`
+-- Table structure for table `inventaris`
 --
 
 CREATE TABLE `inventaris` (
@@ -38,16 +38,25 @@ CREATE TABLE `inventaris` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `inventaris`
+-- Dumping data for table `inventaris`
 --
 
 INSERT INTO `inventaris` (`id_barang`, `merk`, `nama_barang`, `kode_aset`, `tahun_perolehan`, `sumber_dana`, `jumlah`) VALUES
-(1, 'Sanyo', 'Kipas Angin', '13/PAGU.III/2019', '2019', 'PAGU', '1');
+(1, 'Sanyo', 'Kipas Angin', '13/PAGU.III/2019', '2019', 'PAGU', '1'),
+(2, 'Panasonic', 'AC', '002', '2010', 'APBD', '4'),
+(3, 'Canon', 'Printer', '1.3.2.10.002.003.003', '2021', 'APBD', '4'),
+(4, 'Simbadda', 'PC', '02.06.03.02.001.0042', '2018', 'APBD', '3'),
+(5, 'Canon', 'Kamera Digital', '3.06.01.02.003', '2013', 'APBD', '5'),
+(6, 'LG', 'AC', '02.06.02.04.04.00.15', '2015', 'APBD', '8'),
+(7, '-', 'Meja Kerja', '1.3.2.10.005.003.011', '2017', 'APBD', '3'),
+(8, '-', 'Kursi Kerja', '1.3.2.10.005.001.014', '2017', 'APBD', '30'),
+(9, '-', 'Proyektor', '02.03.01.02.001.0017', '2018', 'APBD', '2'),
+(10, 'Panasonic', 'TV', '3.06.01.02.003.001', '2020', 'APBD', '2');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -63,20 +72,27 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_peg`, `nip`, `nama`, `jabatan`, `golongan`, `jk`, `agama`, `tmp_lhr`, `tgl_lhr`) VALUES
-(3, '196503111986022001', 'BARDAMAINI, S.Sos', 'KEPALA DINAS', 'PEMBINA TK.I', 'Laki - Laki', 'Islam', 'Kandangan', '1965-03-11'),
-(4, '197012261992031005', 'RACHMAT,S.Sos,MM', 'SEKRETARIS', 'PEMBINA TK.I', 'Laki - Laki', 'Islam', 'Kandangan', '1970-12-26'),
-(5, '196411101989031024', 'IDERIS', 'PENGELOLA SARANA DAN PRASARANA KANTOR ', 'PENATA MUDA', 'Laki - Laki', 'Islam', 'Kandangan', '1964-11-10'),
-(6, '196809282008011010', 'MURSIDI', 'PETUGAS KEAMANAN ', 'PENGATUR TK. I', 'Laki - Laki', 'Islam', 'Kandangan', '1968-09-28'),
-(7, '196605221986022002', 'H. AKHMAD HUDAIBI, S.Pd', 'KEPALA BIDANG PELAYANAN PENCATATAN SIPIL', 'PEMBINA', 'Laki - Laki', 'Islam', 'Kandangan', '1966-05-22');
+(10, '196503111986022001', 'BARDAMAINI, S.Sos', 'KEPALA DINAS', 'PEMBINA TK.I    IV/b', 'Perempuan', 'Islam', 'HSS', '1965-03-11'),
+(11, '197012261992031005', 'RACHMAT,S.Sos,MM', 'SEKRETARIS', 'PEMBINA TK.I    IV/b', 'Laki - Laki', 'Islam', 'HSS', '1970-12-26'),
+(12, '196411101989031024', 'IDERIS', 'PENGELOLA SARANA DAN PRASARANA KANTOR ', 'PENATA MUDA    III/A', 'Laki - Laki', 'Islam', 'HSS', '1964-11-10'),
+(13, '196809282008011010', 'MURSIDI', 'PETUGAS KEAMANAN ', 'PENGATUR TK. I    II/d', 'Laki - Laki', 'Islam', 'HSS', '1968-09-28'),
+(14, '198106032009012002', 'RIHANATUL KIPTIAH', 'PENGADMINISTRASI UMUM', 'PENGATUR TK. I    II/d', 'Perempuan', 'Islam', 'HST', '1981-06-03'),
+(15, '197103092006041014', 'ALFIAN', 'PENGEMUDI', 'PENGATUR MUDA TK. I  II/b', 'Perempuan', 'Islam', 'HSS', '1971-03-09'),
+(16, '196809051989031010', 'ZIADI, A.Md', 'KASUBAG PERENCANAAN DAN KEUANGAN', 'PENATA TK. I  III/d', 'Laki - Laki', 'Islam', 'TAPIN', '1968-09-05'),
+(17, '198112042010011010', 'SUPRIYADI SUFIAN, S,IP', 'PENYUSUN PROGRAM ANGGARAN DAN PELAPORAN ', 'PENATA MUDA   III/a', 'Laki - Laki', 'Islam', 'HSS', '1981-12-04'),
+(18, '196806071993031007', 'SYAMSI, S.Sos', 'PENGELOLA KEPEGAWAIAN ', 'PENATA TK. I  III/d', 'Laki - Laki', 'Islam', 'HSS', '1968-06-07'),
+(19, '197710102009011007', 'ABDUL SALAM', 'BENDAHARA ', 'PENGATUR TK. I    II/d', 'Laki - Laki', 'Islam', 'HSS', '1977-10-10'),
+(20, '198002272010012002', 'NORLIANI', 'PENGELOLA KEUANGAN ', 'PENGATUR  II/c', 'Perempuan', 'Islam', 'HSS', '1980-02-27'),
+(21, '196911281994031005', 'HAIRIN FAHMI, S.Sos,MPA', 'KEPALA BIDANG PELAYANAN PENDAFTARAN PENDUDUK', 'PEMBINA  IV/a', 'Laki - Laki', 'Islam', 'BJM', '1969-11-28');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_keluar`
+-- Table structure for table `surat_keluar`
 --
 
 CREATE TABLE `surat_keluar` (
@@ -92,16 +108,25 @@ CREATE TABLE `surat_keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `surat_keluar`
+-- Dumping data for table `surat_keluar`
 --
 
 INSERT INTO `surat_keluar` (`id_sk`, `nomor_urut`, `no_surat`, `tgl_surat`, `tgl_kirim`, `uraian`, `pengirim`, `ket_surat`, `file`) VALUES
-(7, '1', '123/VII/2021/B', '2022-01-01', '2022-01-13', 'Surat Kepanitian', 'Syarifudin', 'Permohonan tambahan panitia kegiatan', '56292.pdf');
+(9, '01', '470/256/Dukcapil', '2021-08-26', '2021-08-26', 'Pengadaan ASN Tahun 2022', 'Staf Dukcapil', 'Tujuan Surat BKPSDM Kab. HSS', '87932.pdf'),
+(10, '02', '470/300/Dukcapil', '2021-09-10', '2021-09-10', 'Laporan ASN Dukcapil yang mengikuti Bimtek/Sosialisasi', 'Staf Dukcapil', 'Tujuan Surat BKPSDM Kab. HSS', '82402.pdf'),
+(11, '03', '470/318/Dukcapil', '2021-09-24', '2021-09-24', 'Laporan Kegiatan Hari peduli Sampah Nasional', 'Staf Dukcapil', 'Tujuan Surat Dispera KPLH Kab. HSS', '80118.pdf'),
+(12, '04', '700/347/Disdukcapil', '2021-10-22', '2021-10-22', 'Alasan Penambahan Anggaran Dinas Dukcapil Tahun 2022', 'Staf Dukcapil', 'Tujuan Surat BKPSDM Kab. HSS', '67533.pdf'),
+(13, '05', '800/440/Disdukcapil', '2021-11-15', '2021-11-15', 'Kesediaan Menerima Penelitian', 'Staf Dukcapil', 'Sekolah Tinggi Ilmu Administrasi Amuntai', '24486.pdf'),
+(14, '06', '800/391/Disdukcapil', '2021-11-30', '2021-11-30', 'Usulan Pejabat dan Bendahara SKPD Tahun Anggaran 2022', 'Staf Dukcapil', 'Tujuan Surat BPKPD Kab. HSS', '62091.pdf'),
+(15, '07', '800/399/Disdukcapil', '2021-12-06', '2021-12-06', 'Pergantian Verifikator Aktivitas Kinerja ASN', 'Staf Dukcapil', 'Tujuan Surat BKPSDM Kab. HSS', '68877.pdf'),
+(16, '08', '470/409/Dukcapil', '2021-12-13', '2021-12-13', 'Permohonan Penggunaan Pakaian Seragam Khusus Layanan', 'Staf Dukcapil', 'Tujuan Surat Sekretaris Daerah Kab. HSS U.Tujuan Surat BKPSDM Kab. HSS U.p Bagian Organisasi Setda Kab. HSS', '4947.pdf'),
+(17, '09', '800/427/Disdukcapil', '2021-12-27', '2021-12-27', 'Usulan Pejabat Pengelola Barang Milik Daerah TA 2022', 'Staf Dukcapil', 'Tujuan Surat Badan Pengelolaan Keuangan dan Pendapatan Daerah Kab. HSS', '96505.pdf'),
+(18, '10', '470/439/Dukcapil', '2021-12-31', '2021-12-31', 'Mohon Data Penduduk Luar Daerah', 'Staf Dukcapil', 'Tujuan  Lurah se Kecamatan Kandangan dan Kepala desa se Kabupaten  HSS', '81940.pdf');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_masuk`
+-- Table structure for table `surat_masuk`
 --
 
 CREATE TABLE `surat_masuk` (
@@ -117,16 +142,25 @@ CREATE TABLE `surat_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `surat_masuk`
+-- Dumping data for table `surat_masuk`
 --
 
 INSERT INTO `surat_masuk` (`id_sm`, `nomor_urut`, `no_surat`, `tgl_surat`, `tgl_terima`, `uraian`, `pengirim`, `ket_surat`, `file`) VALUES
-(4, '1', '0182/B.15/SM/DUKCAPIL/2022', '2022-01-01', '2021-12-31', 'Undangan', 'Dinas Pendidikan/ H Jumeran', 'Undangan Peresmian Aplikasi', '56423.pdf');
+(8, '01', '005/57-PE/Bappelitbangda', '2021-09-13', '2021-09-14', 'Undangan', 'Bappelitbangda', 'Undangan', '66768.pdf'),
+(9, '02', '562/462/DisnakerKUKMP', '2021-09-15', '2021-09-15', 'Keikutsertaan Non ASN pada Program BPJS Ketenagakerjaan', 'Sekretariat Daerah', '', '4682.pdf'),
+(10, '03', '470/323/Disdukcapil', '2021-09-29', '2021-09-29', 'Peningkatan Cakupan Akta Kematian', 'Sekretariat Daerah', '', '61719.pdf'),
+(11, '04', '427/144-P/Disporapar', '2021-10-07', '2021-10-08', 'Pemasangan Spanduk Hari Sumpah Pemuda', 'Sekretariat Daerah', '', '54141.pdf'),
+(12, '05', '032/1555/BPKPD', '2021-10-13', '2021-10-14', 'Pemberitahuan Pengumuman Lelang', 'Sekretariat Daerah', '', '36415.pdf'),
+(14, '06', '065/256/ORG', '2021-10-22', '2021-10-22', 'Data Penandatangan Kesepakatan Bersama dan PKS Penyelenggaraan Pelayanan Pada Mal Pelayanan Publik', 'Sekretariat Daerah', '', ''),
+(15, '07', '890/1857/PSDM', '2021-10-29', '2021-10-29', 'Seminar Pelatihan Dasar CPNS Golongan II Angkatan I Tahun 2021', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kab. HSS', '', '46661.pdf'),
+(16, '08', '870/1922/ADIKASN', '2021-11-09', '2021-11-10', 'Perpanjangan Waktu PDM', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kab. HSS', '', '60846.pdf'),
+(18, '09', '861/1928/BPKPEKASN', '2021-11-10', '2021-11-10', 'Penganugerahan Tanda Kehormatan Satyalancana Karya Satya', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kab. HSS', '', '62748.pdf'),
+(19, '10', '900/435/B.Kesbangpol', '2021-12-17', '2021-12-17', 'Sosialisasi Peringatan Hari Bela Negara Ke-73 Tahun 2021', 'Sekretariat Daerah', '', '69568.pdf');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_tugas`
+-- Table structure for table `surat_tugas`
 --
 
 CREATE TABLE `surat_tugas` (
@@ -142,16 +176,17 @@ CREATE TABLE `surat_tugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `surat_tugas`
+-- Dumping data for table `surat_tugas`
 --
 
 INSERT INTO `surat_tugas` (`id_st`, `nomor_urut`, `no_surat`, `tgl_st`, `nama_st`, `perihal`, `tujuan_st`, `ket_st`, `file`) VALUES
-(7, '1', '908/15.B/BUJ/2022', '2022-01-01', 'Syahrani', 'Perjalanan Dinas', 'Ke Jakarta', 'Pelatihan Renstra', '88318.pdf');
+(7, '1', '908/15.B/BUJ/2022', '2022-01-01', 'Syahrani', 'Perjalanan Dinas', 'Ke Jakarta', 'Pelatihan Renstra', '88318.pdf'),
+(8, '02', '19992', '0000-00-00', 'Bardamaini', 'Mengikuti Rapat Konsultasi KTP Elekronik', 'Hotel Roditha, Banjarmasin', '', '24337.pdf');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -163,7 +198,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `role`) VALUES
@@ -175,77 +210,77 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indeks untuk tabel `inventaris`
+-- Indexes for table `inventaris`
 --
 ALTER TABLE `inventaris`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_peg`);
 
 --
--- Indeks untuk tabel `surat_keluar`
+-- Indexes for table `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
   ADD PRIMARY KEY (`id_sk`);
 
 --
--- Indeks untuk tabel `surat_masuk`
+-- Indexes for table `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
   ADD PRIMARY KEY (`id_sm`);
 
 --
--- Indeks untuk tabel `surat_tugas`
+-- Indexes for table `surat_tugas`
 --
 ALTER TABLE `surat_tugas`
   ADD PRIMARY KEY (`id_st`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `inventaris`
+-- AUTO_INCREMENT for table `inventaris`
 --
 ALTER TABLE `inventaris`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_peg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_peg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `surat_keluar`
+-- AUTO_INCREMENT for table `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `surat_masuk`
+-- AUTO_INCREMENT for table `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
-  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT untuk tabel `surat_tugas`
+-- AUTO_INCREMENT for table `surat_tugas`
 --
 ALTER TABLE `surat_tugas`
-  MODIFY `id_st` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_st` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
